@@ -31,10 +31,9 @@
     /* ── HERO ── */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 600px;
+      min-height: 100vh;
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
       overflow: hidden;
       background: var(--burgundy-dark);
     }
@@ -56,10 +55,10 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        to top,
-        rgba(20,6,6,0.92) 0%,
-        rgba(20,6,6,0.55) 50%,
-        rgba(20,6,6,0.2) 100%
+        to bottom,
+        rgba(20,6,6,0.65) 0%,
+        rgba(20,6,6,0.45) 50%,
+        rgba(20,6,6,0.75) 100%
       );
     }
 
@@ -67,7 +66,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 0 6% 80px;
+      padding: 80px 6% 80px;
       display: flex;
       flex-direction: column;
       gap: 0;
