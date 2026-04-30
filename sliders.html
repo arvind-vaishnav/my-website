@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aluminium Doors — Premium Collection</title>
+  <title>Aluminium Sliding Windows — Premium Collection</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -145,7 +144,6 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ── SCROLL INDICATOR ── */
     .scroll-hint {
       position: absolute;
       bottom: 32px;
@@ -175,7 +173,6 @@
       50% { opacity: 1; transform: scaleY(1.2); }
     }
 
-    /* ── GALLERY SECTION ── */
     .gallery-section {
       padding: 100px 6%;
       background: var(--cream);
@@ -224,11 +221,10 @@
       flex-shrink: 0;
     }
 
-    /* ── PRODUCT GRID ── */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 16px;
     }
 
     .product-item {
@@ -237,11 +233,7 @@
       overflow: hidden;
       cursor: zoom-in;
       aspect-ratio: 3/4;
-    }
-
-    .product-item.large {
-      grid-row: span 2;
-      aspect-ratio: auto;
+      border-radius: 2px;
     }
 
     .product-item img {
@@ -259,13 +251,13 @@
     .product-item-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(20,6,6,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(20,6,6,0.75) 0%, transparent 55%);
       opacity: 0;
       transition: opacity 0.4s ease;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 24px;
+      padding: 20px;
     }
 
     .product-item:hover .product-item-overlay {
@@ -273,18 +265,18 @@
     }
 
     .item-label {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .item-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .item-zoom {
       display: inline-flex;
@@ -302,7 +294,6 @@
       fill: none;
     }
 
-    /* Placeholder for missing images */
     .product-placeholder {
       width: 100%;
       height: 100%;
@@ -328,7 +319,6 @@
       opacity: 0.5;
     }
 
-    /* ── LIGHTBOX ── */
     #lightbox {
       position: fixed;
       inset: 0;
@@ -367,7 +357,6 @@
       border: 1px solid rgba(200,160,122,0.15);
     }
 
-    /* Zoom controls */
     #lightbox-controls {
       position: absolute;
       bottom: -52px;
@@ -454,7 +443,6 @@
       color: var(--gold);
     }
 
-    /* ── FEATURES STRIP ── */
     .features-strip {
       background: var(--burgundy);
       padding: 56px 6%;
@@ -499,7 +487,6 @@
       line-height: 1.5;
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: none; }
@@ -511,17 +498,15 @@
       transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-    .reveal-delay-6 { transition-delay: 0.6s; }
+    .reveal-delay-1 { transition-delay: 0.05s; }
+    .reveal-delay-2 { transition-delay: 0.10s; }
+    .reveal-delay-3 { transition-delay: 0.15s; }
+    .reveal-delay-4 { transition-delay: 0.20s; }
+    .reveal-delay-5 { transition-delay: 0.25s; }
+    .reveal-delay-6 { transition-delay: 0.30s; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
-      .product-item.large { grid-row: span 1; aspect-ratio: 3/4; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .features-strip { flex-direction: column; gap: 32px; }
       .feature-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 32px; }
       .feature-strip-item:last-child { border-bottom: none; }
@@ -530,14 +515,13 @@
     }
 
     @media (max-width: 560px) {
-      .product-grid { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr; gap: 10px; }
       #lightbox-nav-prev, #lightbox-nav-next { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -546,10 +530,10 @@
     <div class="hero-label">
       <span>Premium Aluminium Collection</span>
     </div>
-    <h1>Sliding<br><em>Windows</em></h1>
+    <h1>Aluminium<br><em>Sliding Windows</em></h1>
     <div class="hero-bottom">
       <p class="hero-desc">
-Smooth-gliding aluminium sliding windows designed for effortless operation and space-saving elegance. Available in custom designs, bespoke dimensions, and a full range of premium anodised finishes.
+        Smooth and stylish aluminium sliding windows engineered for lasting durability and modern living. Available in custom designs, bespoke dimensions, and a full range of premium anodised finishes.
       </p>
       <div class="hero-meta">
         <div class="hero-stat">
@@ -570,7 +554,6 @@ Smooth-gliding aluminium sliding windows designed for effortless operation and s
   </div>
 </section>
 
-<!-- ── FEATURES STRIP ── -->
 <div class="features-strip">
   <div class="feature-strip-item reveal reveal-delay-1">
     <div class="feature-icon-box">
@@ -610,81 +593,98 @@ Smooth-gliding aluminium sliding windows designed for effortless operation and s
   </div>
 </div>
 
-<!-- ── GALLERY ── -->
 <section class="gallery-section">
   <div class="section-header reveal">
     <div>
       <div class="section-eyebrow">Our Work</div>
       <h2 class="section-title">Crafted for Every<br>Space & Style</h2>
     </div>
-    <div class="section-count">03</div>
+    <div class="section-count">15</div>
   </div>
 
   <div class="product-grid">
-
-    <!-- Item 1 — tall featured card -->
-    <div class="product-item large reveal reveal-delay-1" data-index="0" data-label="Casement Door" data-name="Silver Casement Series">
-      <img src="door1.png" alt="Silver Casement Aluminium Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Door 1</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 01</div>
-        <div class="item-name">Silver Casement Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item reveal reveal-delay-1" data-index="0" data-label="Sliding Window" data-name="Bronze Sliding Series">
+      <img src="slider1.png" alt="Sliding Window 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg><span>Window 01</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 01</div><div class="item-name">Bronze Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
     </div>
-
-    <!-- Item 2 -->
-    <div class="product-item reveal reveal-delay-2" data-index="1" data-label="Sliding Door" data-name="Bronze Sliding Series">
-      <img src="door2.png" alt="Bronze Sliding Aluminium Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 2</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 02</div>
-        <div class="item-name">Bronze Sliding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item reveal reveal-delay-2" data-index="1" data-label="Sliding Window" data-name="Bronze Sliding Series">
+      <img src="slider2.png" alt="Sliding Window 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg><span>Window 02</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 02</div><div class="item-name">Bronze Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
     </div>
-
-    <!-- Item 3 -->
-    <div class="product-item reveal reveal-delay-3" data-index="2" data-label="Double Door" data-name="Antique Bronze Double Door">
-      <img src="door3.png" alt="Antique Bronze Double Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 3</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 03</div>
-        <div class="item-name">Antique Double Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item reveal reveal-delay-3" data-index="2" data-label="Sliding Window" data-name="Antique Sliding Series">
+      <img src="slider3.png" alt="Sliding Window 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 03</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 03</div><div class="item-name">Antique Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
     </div>
-
+    <div class="product-item reveal reveal-delay-1" data-index="3" data-label="Sliding Window" data-name="Antique Sliding Series">
+      <img src="slider4.png" alt="Sliding Window 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 04</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 04</div><div class="item-name">Antique Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-2" data-index="4" data-label="Sliding Window" data-name="Antique Sliding Series">
+      <img src="slider5.png" alt="Sliding Window 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 05</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 05</div><div class="item-name">Antique Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-3" data-index="5" data-label="Sliding Window" data-name="Silver Sliding Series">
+      <img src="slider6.png" alt="Sliding Window 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg><span>Window 06</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 06</div><div class="item-name">Silver Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-1" data-index="6" data-label="Sliding Window" data-name="Silver Sliding Series">
+      <img src="slider7.png" alt="Sliding Window 7" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg><span>Window 07</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 07</div><div class="item-name">Silver Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-2" data-index="7" data-label="Sliding Window" data-name="Matte Black Sliding Series">
+      <img src="slider8.png" alt="Sliding Window 8" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 08</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 08</div><div class="item-name">Matte Black Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-3" data-index="8" data-label="Sliding Window" data-name="Charcoal Sliding Series">
+      <img src="slider9.png" alt="Sliding Window 9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg><span>Window 09</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 09</div><div class="item-name">Charcoal Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-1" data-index="9" data-label="Sliding Window" data-name="Ivory Sliding Series">
+      <img src="slider10.png" alt="Sliding Window 10" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 10</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 10</div><div class="item-name">Ivory Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-2" data-index="10" data-label="Sliding Window" data-name="Graphite Sliding Series">
+      <img src="slider11.png" alt="Sliding Window 11" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg><span>Window 11</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 11</div><div class="item-name">Graphite Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-3" data-index="11" data-label="Sliding Window" data-name="Champagne Sliding Series">
+      <img src="slider12.png" alt="Sliding Window 12" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 12</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 12</div><div class="item-name">Champagne Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-1" data-index="12" data-label="Sliding Window" data-name="White Sliding Series">
+      <img src="slider13.png" alt="Sliding Window 13" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg><span>Window 13</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 13</div><div class="item-name">White Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-2" data-index="13" data-label="Sliding Window" data-name="Anodised Sliding Series">
+      <img src="slider14.png" alt="Sliding Window 14" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg><span>Window 14</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 14</div><div class="item-name">Anodised Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
+    <div class="product-item reveal reveal-delay-3" data-index="14" data-label="Sliding Window" data-name="Bronze Sliding Series">
+      <img src="slider15.png" alt="Sliding Window 15" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none"><svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg><span>Window 15</span></div>
+      <div class="product-item-overlay"><div class="item-label">Series 15</div><div class="item-name">Bronze Sliding Window</div><div class="item-zoom"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>View full size</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ── LIGHTBOX ── -->
 <div id="lightbox">
   <button id="lightbox-close" title="Close">✕</button>
   <button id="lightbox-nav-prev" title="Previous">&#8592;</button>
   <button id="lightbox-nav-next" title="Next">&#8594;</button>
-
   <div id="lightbox-inner">
     <div id="lightbox-caption"></div>
     <img id="lightbox-img" src="" alt="">
@@ -697,28 +697,26 @@ Smooth-gliding aluminium sliding windows designed for effortless operation and s
 </div>
 
 <script>
-  // ── Scroll Reveal ──
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── Lightbox ──
   const items = [...document.querySelectorAll('.product-item')];
   const lightbox = document.getElementById('lightbox');
-  const lbImg   = document.getElementById('lightbox-img');
-  const lbCap   = document.getElementById('lightbox-caption');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-caption');
   let currentIdx = 0;
   let currentScale = 1;
 
   function openLightbox(idx) {
     const item = items[idx];
-    const img  = item.querySelector('img');
-    if (!img || img.style.display === 'none') return; // no image loaded
+    const img = item.querySelector('img');
+    if (!img || img.style.display === 'none') return;
     currentIdx = idx;
     currentScale = 1;
-    lbImg.style.transform = `scale(1)`;
+    lbImg.style.transform = 'scale(1)';
     lbImg.src = img.src;
     lbCap.textContent = item.dataset.label + ' — ' + item.dataset.name;
     lightbox.classList.add('active');
@@ -750,11 +748,10 @@ Smooth-gliding aluminium sliding windows designed for effortless operation and s
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'ArrowLeft') navigate(-1);
     if (e.key === 'ArrowRight') navigate(1);
   });
 
-  // Zoom
   document.getElementById('btn-zoom-in').addEventListener('click', () => {
     currentScale = Math.min(currentScale + 0.25, 3);
     lbImg.style.transform = `scale(${currentScale})`;
@@ -765,7 +762,7 @@ Smooth-gliding aluminium sliding windows designed for effortless operation and s
   });
   document.getElementById('btn-zoom-reset').addEventListener('click', () => {
     currentScale = 1;
-    lbImg.style.transform = `scale(1)`;
+    lbImg.style.transform = 'scale(1)';
   });
 </script>
 </body>
