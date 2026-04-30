@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aluminium Doors — Premium Collection</title>
+  <title>Custom Fabrication — Premium Collection</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -145,7 +144,6 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ── SCROLL INDICATOR ── */
     .scroll-hint {
       position: absolute;
       bottom: 32px;
@@ -175,7 +173,6 @@
       50% { opacity: 1; transform: scaleY(1.2); }
     }
 
-    /* ── GALLERY SECTION ── */
     .gallery-section {
       padding: 100px 6%;
       background: var(--cream);
@@ -224,11 +221,10 @@
       flex-shrink: 0;
     }
 
-    /* ── PRODUCT GRID ── */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 16px;
     }
 
     .product-item {
@@ -237,11 +233,7 @@
       overflow: hidden;
       cursor: zoom-in;
       aspect-ratio: 3/4;
-    }
-
-    .product-item.large {
-      grid-row: span 2;
-      aspect-ratio: 3/4;
+      border-radius: 2px;
     }
 
     .product-item img {
@@ -259,13 +251,13 @@
     .product-item-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(20,6,6,0.7) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(20,6,6,0.75) 0%, transparent 55%);
       opacity: 0;
       transition: opacity 0.4s ease;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 24px;
+      padding: 20px;
     }
 
     .product-item:hover .product-item-overlay {
@@ -273,18 +265,18 @@
     }
 
     .item-label {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .item-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .item-zoom {
       display: inline-flex;
@@ -302,7 +294,6 @@
       fill: none;
     }
 
-    /* Placeholder for missing images */
     .product-placeholder {
       width: 100%;
       height: 100%;
@@ -328,7 +319,6 @@
       opacity: 0.5;
     }
 
-    /* ── LIGHTBOX ── */
     #lightbox {
       position: fixed;
       inset: 0;
@@ -367,7 +357,6 @@
       border: 1px solid rgba(200,160,122,0.15);
     }
 
-    /* Zoom controls */
     #lightbox-controls {
       position: absolute;
       bottom: -52px;
@@ -454,7 +443,6 @@
       color: var(--gold);
     }
 
-    /* ── FEATURES STRIP ── */
     .features-strip {
       background: var(--burgundy);
       padding: 56px 6%;
@@ -499,7 +487,6 @@
       line-height: 1.5;
     }
 
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: none; }
@@ -511,17 +498,15 @@
       transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-    .reveal-delay-6 { transition-delay: 0.6s; }
+    .reveal-delay-1 { transition-delay: 0.05s; }
+    .reveal-delay-2 { transition-delay: 0.10s; }
+    .reveal-delay-3 { transition-delay: 0.15s; }
+    .reveal-delay-4 { transition-delay: 0.20s; }
+    .reveal-delay-5 { transition-delay: 0.25s; }
+    .reveal-delay-6 { transition-delay: 0.30s; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
-      .product-item.large { grid-row: span 1; aspect-ratio: 3/4; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
       .features-strip { flex-direction: column; gap: 32px; }
       .feature-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 32px; }
       .feature-strip-item:last-child { border-bottom: none; }
@@ -530,26 +515,25 @@
     }
 
     @media (max-width: 560px) {
-      .product-grid { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr; gap: 10px; }
       #lightbox-nav-prev, #lightbox-nav-next { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
     <div class="hero-label">
-      <span>Premium Aluminium Collection</span>
+      <span>Premium Custom Collection</span>
     </div>
     <h1>Custom<br><em>Fabrication</em></h1>
     <div class="hero-bottom">
       <p class="hero-desc">
-       Precision-crafted aluminium solutions tailored to your exact requirements, combining strength, functionality, and modern design. Available in fully custom designs, bespoke dimensions, and a full range of premium anodised finishes.
+        Bespoke fabrication solutions crafted with precision for residential, commercial, and architectural projects. Designed to match your exact requirements with premium finishes and custom dimensions.
       </p>
       <div class="hero-meta">
         <div class="hero-stat">
@@ -570,15 +554,14 @@
   </div>
 </section>
 
-<!-- ── FEATURES STRIP ── -->
 <div class="features-strip">
   <div class="feature-strip-item reveal reveal-delay-1">
     <div class="feature-icon-box">
       <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
     </div>
     <div class="feature-strip-text">
-      <h4>ISI Certified Profiles</h4>
-      <p>All extrusions meet Bureau of Indian Standards specifications</p>
+      <h4>Precision Craftsmanship</h4>
+      <p>Every fabrication is built with attention to detail and lasting quality</p>
     </div>
   </div>
   <div class="feature-strip-item reveal reveal-delay-2">
@@ -587,7 +570,7 @@
     </div>
     <div class="feature-strip-text">
       <h4>Fully Custom Sizes</h4>
-      <p>Made-to-measure for every opening, from compact to monumental</p>
+      <p>Tailored to fit unique spaces, layouts and project requirements</p>
     </div>
   </div>
   <div class="feature-strip-item reveal reveal-delay-3">
@@ -595,8 +578,8 @@
       <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
     </div>
     <div class="feature-strip-text">
-      <h4>Weather Resistant</h4>
-      <p>Powder-coated finish withstands extreme heat, rain and humidity</p>
+      <h4>Durable Finishes</h4>
+      <p>Engineered to perform beautifully under everyday use and exposure</p>
     </div>
   </div>
   <div class="feature-strip-item reveal reveal-delay-4">
@@ -605,34 +588,31 @@
     </div>
     <div class="feature-strip-text">
       <h4>Fast Installation</h4>
-      <p>Precision-fabricated in our facility for quick on-site fitting</p>
+      <p>Precision-made components for smooth fabrication and on-site fitting</p>
     </div>
   </div>
 </div>
 
-<!-- ── GALLERY ── -->
 <section class="gallery-section">
   <div class="section-header reveal">
     <div>
       <div class="section-eyebrow">Our Work</div>
       <h2 class="section-title">Crafted for Every<br>Space & Style</h2>
     </div>
-    <div class="section-count">03</div>
+    <div class="section-count">15</div>
   </div>
 
   <div class="product-grid">
 
-    <!-- Item 1 — tall featured card -->
-    <div class="product-item large reveal reveal-delay-1" data-index="0" data-label="Casement Door" data-name="Silver Casement Series">
-      <img src="door1.png" alt="Silver Casement Aluminium Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div class="product-item reveal reveal-delay-1" data-index="0" data-label="Custom Fabrication" data-name="Project Series 01">
+      <img src="custom1.png" alt="Custom Fabrication 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Door 1</span>
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
+        <span>Project 01</span>
       </div>
       <div class="product-item-overlay">
         <div class="item-label">Series 01</div>
-        <div class="item-name">Silver Casement Door</div>
+        <div class="item-name">Custom Product Title 01</div>
         <div class="item-zoom">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
           View full size
@@ -640,17 +620,15 @@
       </div>
     </div>
 
-    <!-- Item 2 -->
-    <div class="product-item reveal reveal-delay-2" data-index="1" data-label="Sliding Door" data-name="Bronze Sliding Series">
-      <img src="door2.png" alt="Bronze Sliding Aluminium Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div class="product-item reveal reveal-delay-2" data-index="1" data-label="Custom Fabrication" data-name="Project Series 02">
+      <img src="custom2.png" alt="Custom Fabrication 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="product-placeholder" style="display:none">
         <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 2</span>
+        <span>Project 02</span>
       </div>
       <div class="product-item-overlay">
         <div class="item-label">Series 02</div>
-        <div class="item-name">Bronze Sliding Door</div>
+        <div class="item-name">Custom Product Title 02</div>
         <div class="item-zoom">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
           View full size
@@ -658,17 +636,207 @@
       </div>
     </div>
 
-    <!-- Item 3 -->
-    <div class="product-item reveal reveal-delay-3" data-index="2" data-label="Double Door" data-name="Antique Bronze Double Door">
-      <img src="door3.png" alt="Antique Bronze Double Door"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+    <div class="product-item reveal reveal-delay-3" data-index="2" data-label="Custom Fabrication" data-name="Project Series 03">
+      <img src="custom3.png" alt="Custom Fabrication 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="product-placeholder" style="display:none">
         <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 3</span>
+        <span>Project 03</span>
       </div>
       <div class="product-item-overlay">
         <div class="item-label">Series 03</div>
-        <div class="item-name">Antique Double Door</div>
+        <div class="item-name">Custom Product Title 03</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-1" data-index="3" data-label="Custom Fabrication" data-name="Project Series 04">
+      <img src="custom4.png" alt="Custom Fabrication 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 04</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 04</div>
+        <div class="item-name">Custom Product Title 04</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-2" data-index="4" data-label="Custom Fabrication" data-name="Project Series 05">
+      <img src="custom5.png" alt="Custom Fabrication 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 05</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 05</div>
+        <div class="item-name">Custom Product Title 05</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-3" data-index="5" data-label="Custom Fabrication" data-name="Project Series 06">
+      <img src="custom6.png" alt="Custom Fabrication 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Project 06</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 06</div>
+        <div class="item-name">Custom Product Title 06</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-1" data-index="6" data-label="Custom Fabrication" data-name="Project Series 07">
+      <img src="custom7.png" alt="Custom Fabrication 7" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Project 07</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 07</div>
+        <div class="item-name">Custom Product Title 07</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-2" data-index="7" data-label="Custom Fabrication" data-name="Project Series 08">
+      <img src="custom8.png" alt="Custom Fabrication 8" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 08</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 08</div>
+        <div class="item-name">Custom Product Title 08</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-3" data-index="8" data-label="Custom Fabrication" data-name="Project Series 09">
+      <img src="custom9.png" alt="Custom Fabrication 9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
+        <span>Project 09</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 09</div>
+        <div class="item-name">Custom Product Title 09</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-1" data-index="9" data-label="Custom Fabrication" data-name="Project Series 10">
+      <img src="custom10.png" alt="Custom Fabrication 10" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 10</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 10</div>
+        <div class="item-name">Custom Product Title 10</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-2" data-index="10" data-label="Custom Fabrication" data-name="Project Series 11">
+      <img src="custom11.png" alt="Custom Fabrication 11" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
+        <span>Project 11</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 11</div>
+        <div class="item-name">Custom Product Title 11</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-3" data-index="11" data-label="Custom Fabrication" data-name="Project Series 12">
+      <img src="custom12.png" alt="Custom Fabrication 12" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 12</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 12</div>
+        <div class="item-name">Custom Product Title 12</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-1" data-index="12" data-label="Custom Fabrication" data-name="Project Series 13">
+      <img src="custom13.png" alt="Custom Fabrication 13" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>Project 13</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 13</div>
+        <div class="item-name">Custom Product Title 13</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-2" data-index="13" data-label="Custom Fabrication" data-name="Project Series 14">
+      <img src="custom14.png" alt="Custom Fabrication 14" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
+        <span>Project 14</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 14</div>
+        <div class="item-name">Custom Product Title 14</div>
+        <div class="item-zoom">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
+          View full size
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item reveal reveal-delay-3" data-index="14" data-label="Custom Fabrication" data-name="Project Series 15">
+      <img src="custom15.png" alt="Custom Fabrication 15" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="product-placeholder" style="display:none">
+        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
+        <span>Project 15</span>
+      </div>
+      <div class="product-item-overlay">
+        <div class="item-label">Series 15</div>
+        <div class="item-name">Custom Product Title 15</div>
         <div class="item-zoom">
           <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
           View full size
@@ -679,7 +847,6 @@
   </div>
 </section>
 
-<!-- ── LIGHTBOX ── -->
 <div id="lightbox">
   <button id="lightbox-close" title="Close">✕</button>
   <button id="lightbox-nav-prev" title="Previous">&#8592;</button>
@@ -697,28 +864,26 @@
 </div>
 
 <script>
-  // ── Scroll Reveal ──
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── Lightbox ──
   const items = [...document.querySelectorAll('.product-item')];
   const lightbox = document.getElementById('lightbox');
-  const lbImg   = document.getElementById('lightbox-img');
-  const lbCap   = document.getElementById('lightbox-caption');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-caption');
   let currentIdx = 0;
   let currentScale = 1;
 
   function openLightbox(idx) {
     const item = items[idx];
-    const img  = item.querySelector('img');
-    if (!img || img.style.display === 'none') return; // no image loaded
+    const img = item.querySelector('img');
+    if (!img || img.style.display === 'none') return;
     currentIdx = idx;
     currentScale = 1;
-    lbImg.style.transform = `scale(1)`;
+    lbImg.style.transform = 'scale(1)';
     lbImg.src = img.src;
     lbCap.textContent = item.dataset.label + ' — ' + item.dataset.name;
     lightbox.classList.add('active');
@@ -750,11 +915,10 @@
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'ArrowLeft') navigate(-1);
     if (e.key === 'ArrowRight') navigate(1);
   });
 
-  // Zoom
   document.getElementById('btn-zoom-in').addEventListener('click', () => {
     currentScale = Math.min(currentScale + 0.25, 3);
     lbImg.style.transform = `scale(${currentScale})`;
@@ -765,7 +929,7 @@
   });
   document.getElementById('btn-zoom-reset').addEventListener('click', () => {
     currentScale = 1;
-    lbImg.style.transform = `scale(1)`;
+    lbImg.style.transform = 'scale(1)';
   });
 </script>
 </body>
