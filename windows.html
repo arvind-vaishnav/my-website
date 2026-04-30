@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aluminium Doors — Premium Collection</title>
+  <title>Aluminium Windows — Premium Collection</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --burgundy: #6b1a1a;
       --burgundy-dark: #3a0a0a;
@@ -19,7 +18,6 @@
       --muted: #8a7a6a;
       --border: rgba(200,160,122,0.2);
     }
-
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Outfit', sans-serif;
@@ -28,7 +26,6 @@
       overflow-x: hidden;
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -145,395 +142,24 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ── SCROLL INDICATOR ── */
-    .scroll-hint {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      animation: fadeUp 1s 1s both;
-    }
-    .scroll-hint span {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
-    .scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
-
-    /* ── GALLERY SECTION ── */
-    .gallery-section {
-      padding: 100px 6%;
-      background: var(--cream);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 60px;
-      gap: 32px;
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-    }
-
+    .gallery-section { padding: 100px 6%; background: var(--cream); }
+    .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; gap: 32px; }
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(30px, 4vw, 46px);
       font-weight: 400;
       color: var(--charcoal);
-      line-height: 1.1;
     }
 
-    .section-count {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 72px;
-      font-weight: 300;
-      color: rgba(107,26,26,0.08);
-      line-height: 1;
-      flex-shrink: 0;
-    }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product-item { position: relative; overflow: hidden; aspect-ratio: 3/4; }
 
-    /* ── PRODUCT GRID — uniform 3-column ── */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    .product-item img { width: 100%; height: 100%; object-fit: cover; }
 
-    .product-item {
-      position: relative;
-      background: #e8e0d8;
-      overflow: hidden;
-      cursor: zoom-in;
-      aspect-ratio: 3/4;
-      border-radius: 2px;
-    }
-
-    /* No .large class — all cards uniform */
-
-    .product-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .product-item:hover img {
-      transform: scale(1.06);
-    }
-
-    .product-item-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(20,6,6,0.75) 0%, transparent 55%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-    }
-
-    .product-item:hover .product-item-overlay {
-      opacity: 1;
-    }
-
-    .item-label {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 4px;
-    }
-    .item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .item-zoom {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-    }
-    .item-zoom svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-    }
-
-    /* Placeholder for missing images */
-    .product-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #ddd5c8 0%, #c8bfb0 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--muted);
-    }
-    .product-placeholder svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--muted);
-      fill: none;
-      opacity: 0.5;
-    }
-    .product-placeholder span {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.5;
-    }
-
-    /* ── LIGHTBOX ── */
-    #lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: rgba(10,3,3,0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.35s ease;
-      backdrop-filter: blur(8px);
-      padding: 40px;
-    }
-    #lightbox.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    #lightbox-inner {
-      position: relative;
-      max-width: 90vw;
-      max-height: 88vh;
-      transform: scale(0.92);
-      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
-    }
-    #lightbox.active #lightbox-inner {
-      transform: scale(1);
-    }
-
-    #lightbox img {
-      display: block;
-      max-width: 100%;
-      max-height: 88vh;
-      object-fit: contain;
-      border: 1px solid rgba(200,160,122,0.15);
-    }
-
-    #lightbox-controls {
-      position: absolute;
-      bottom: -52px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-    }
-
-    .lb-btn {
-      background: rgba(200,160,122,0.1);
-      border: 1px solid rgba(200,160,122,0.3);
-      color: var(--gold);
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 18px;
-    }
-    .lb-btn:hover {
-      background: rgba(200,160,122,0.2);
-      border-color: var(--gold);
-    }
-
-    #lightbox-close {
-      position: fixed;
-      top: 24px;
-      right: 28px;
-      background: none;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.7);
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 20px;
-      transition: all 0.2s;
-      z-index: 10;
-    }
-    #lightbox-close:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      transform: rotate(90deg);
-    }
-
-    #lightbox-caption {
-      position: absolute;
-      top: -44px;
-      left: 0;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-
-    #lightbox-nav-prev,
-    #lightbox-nav-next {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.6);
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 20px;
-      transition: all 0.2s;
-      z-index: 10;
-    }
-    #lightbox-nav-prev { left: 20px; }
-    #lightbox-nav-next { right: 20px; }
-    #lightbox-nav-prev:hover,
-    #lightbox-nav-next:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
-    /* ── FEATURES STRIP ── */
-    .features-strip {
-      background: var(--burgundy);
-      padding: 56px 6%;
-      display: flex;
-      gap: 0;
-    }
-    .feature-strip-item {
-      flex: 1;
-      padding: 0 40px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .feature-strip-item:first-child { padding-left: 0; }
-    .feature-strip-item:last-child { border-right: none; }
-
-    .feature-icon-box {
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(200,160,122,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .feature-icon-box svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--gold);
-      fill: none;
-    }
-    .feature-strip-text h4 {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-    .feature-strip-text p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.5;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: none; }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.05s; }
-    .reveal-delay-2 { transition-delay: 0.10s; }
-    .reveal-delay-3 { transition-delay: 0.15s; }
-    .reveal-delay-4 { transition-delay: 0.20s; }
-    .reveal-delay-5 { transition-delay: 0.25s; }
-    .reveal-delay-6 { transition-delay: 0.30s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .features-strip { flex-direction: column; gap: 32px; }
-      .feature-strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0 0 32px; }
-      .feature-strip-item:last-child { border-bottom: none; }
-      .hero-meta { display: none; }
-      .section-header { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (max-width: 560px) {
-      .product-grid { grid-template-columns: 1fr; gap: 10px; }
-      #lightbox-nav-prev, #lightbox-nav-next { display: none; }
-    }
   </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -542,428 +168,70 @@
     <div class="hero-label">
       <span>Premium Aluminium Collection</span>
     </div>
-    <h1>Aluminium<br><em>Doors</em></h1>
+    <h1>Aluminium<br><em>Windows</em></h1>
     <div class="hero-bottom">
       <p class="hero-desc">
-        Strong and stylish aluminium doors engineered for lasting durability and modern living. Available in custom designs, bespoke dimensions, and a full range of premium anodised finishes.
+        Strong and stylish aluminium windows engineered for lasting durability and modern living. Available in custom designs, bespoke dimensions, and a full range of premium anodised finishes.
       </p>
-      <div class="hero-meta">
-        <div class="hero-stat">
-          <strong>12+</strong>
-          <span>Finishes</span>
-        </div>
-        <div class="hero-stat">
-          <strong>100%</strong>
-          <span>Custom</span>
-        </div>
-      </div>
     </div>
-  </div>
-
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
   </div>
 </section>
 
-<!-- ── FEATURES STRIP ── -->
-<div class="features-strip">
-  <div class="feature-strip-item reveal reveal-delay-1">
-    <div class="feature-icon-box">
-      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-    </div>
-    <div class="feature-strip-text">
-      <h4>ISI Certified Profiles</h4>
-      <p>All extrusions meet Bureau of Indian Standards specifications</p>
-    </div>
-  </div>
-  <div class="feature-strip-item reveal reveal-delay-2">
-    <div class="feature-icon-box">
-      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-    </div>
-    <div class="feature-strip-text">
-      <h4>Fully Custom Sizes</h4>
-      <p>Made-to-measure for every opening, from compact to monumental</p>
-    </div>
-  </div>
-  <div class="feature-strip-item reveal reveal-delay-3">
-    <div class="feature-icon-box">
-      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
-    </div>
-    <div class="feature-strip-text">
-      <h4>Weather Resistant</h4>
-      <p>Powder-coated finish withstands extreme heat, rain and humidity</p>
-    </div>
-  </div>
-  <div class="feature-strip-item reveal reveal-delay-4">
-    <div class="feature-icon-box">
-      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    </div>
-    <div class="feature-strip-text">
-      <h4>Fast Installation</h4>
-      <p>Precision-fabricated in our facility for quick on-site fitting</p>
-    </div>
-  </div>
-</div>
-
-<!-- ── GALLERY ── -->
 <section class="gallery-section">
-  <div class="section-header reveal">
-    <div>
-      <div class="section-eyebrow">Our Work</div>
-      <h2 class="section-title">Crafted for Every<br>Space & Style</h2>
-    </div>
-    <div class="section-count">15</div>
+  <div class="section-header">
+    <h2 class="section-title">Crafted for Every<br>Space & Style</h2>
   </div>
 
   <div class="product-grid">
 
-    <!-- Item 1 -->
-    <div class="product-item reveal reveal-delay-1" data-index="0" data-label="Sliding Door" data-name="Bronze Sliding Series">
-      <img src="window1.png" alt="Door 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 01</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 01</div>
-        <div class="item-name">Bronze Sliding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window1.png" alt="Window 1">
     </div>
-
-    <!-- Item 2 -->
-    <div class="product-item reveal reveal-delay-2" data-index="1" data-label="Sliding Door" data-name="Bronze Sliding Series">
-      <img src="window2.png" alt="Door 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 02</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 02</div>
-        <div class="item-name">Bronze Sliding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window2.png" alt="Window 2">
     </div>
-
-    <!-- Item 3 -->
-    <div class="product-item reveal reveal-delay-3" data-index="2" data-label="Double Door" data-name="Antique Double Door">
-      <img src="window3.png" alt="Door 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 03</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 03</div>
-        <div class="item-name">Antique Double Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window3.png" alt="Window 3">
     </div>
-
-    <!-- Item 4 -->
-    <div class="product-item reveal reveal-delay-1" data-index="3" data-label="Double Door" data-name="Antique Double Door">
-      <img src="window4.png" alt="Door 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 04</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 04</div>
-        <div class="item-name">Antique Double Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window4.png" alt="Window 4">
     </div>
-
-    <!-- Item 5 -->
-    <div class="product-item reveal reveal-delay-2" data-index="4" data-label="Double Door" data-name="Antique Double Door">
-      <img src="window5.png" alt="Door 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 05</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 05</div>
-        <div class="item-name">Antique Double Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window5.png" alt="Window 5">
     </div>
-
-    <!-- Item 6 -->
-    <div class="product-item reveal reveal-delay-3" data-index="5" data-label="Casement Door" data-name="Silver Casement Series">
-      <img src="window6.png" alt="Door 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Door 06</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 06</div>
-        <div class="item-name">Silver Casement Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window6.png" alt="Window 6">
     </div>
-
-    <!-- Item 7 -->
-    <div class="product-item reveal reveal-delay-1" data-index="6" data-label="Casement Door" data-name="Silver Casement Series">
-      <img src="window7.png" alt="Door 7" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Door 07</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 07</div>
-        <div class="item-name">Silver Casement Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window7.png" alt="Window 7">
     </div>
-
-    <!-- Item 8 -->
-    <div class="product-item reveal reveal-delay-2" data-index="7" data-label="Folding Door" data-name="Matte Black Folding Series">
-      <img src="window8.png" alt="Door 8" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 08</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 08</div>
-        <div class="item-name">Matte Black Folding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window8.png" alt="Window 8">
     </div>
-
-    <!-- Item 9 -->
-    <div class="product-item reveal reveal-delay-3" data-index="8" data-label="Pivot Door" data-name="Charcoal Pivot Series">
-      <img src="window9.png" alt="Door 9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 09</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 09</div>
-        <div class="item-name">Charcoal Pivot Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window9.png" alt="Window 9">
     </div>
-
-    <!-- Item 10 -->
-    <div class="product-item reveal reveal-delay-1" data-index="9" data-label="French Door" data-name="Ivory French Series">
-      <img src="window10.png" alt="Door 10" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 10</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 10</div>
-        <div class="item-name">Ivory French Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window10.png" alt="Window 10">
     </div>
-
-    <!-- Item 11 -->
-    <div class="product-item reveal reveal-delay-2" data-index="10" data-label="Sliding Door" data-name="Graphite Sliding Series">
-      <img src="window11.png" alt="Door 11" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 11</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 11</div>
-        <div class="item-name">Graphite Sliding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window11.png" alt="Window 11">
     </div>
-
-    <!-- Item 12 -->
-    <div class="product-item reveal reveal-delay-3" data-index="11" data-label="Double Door" data-name="Champagne Double Series">
-      <img src="window12.png" alt="Door 12" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 12</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 12</div>
-        <div class="item-name">Champagne Double Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window12.png" alt="Window 12">
     </div>
-
-    <!-- Item 13 -->
-    <div class="product-item reveal reveal-delay-1" data-index="12" data-label="Casement Door" data-name="White Casement Series">
-      <img src="window13.png" alt="Door 13" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Door 13</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 13</div>
-        <div class="item-name">White Casement Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window13.png" alt="Window 13">
     </div>
-
-    <!-- Item 14 -->
-    <div class="product-item reveal reveal-delay-2" data-index="13" data-label="Folding Door" data-name="Anodised Folding Series">
-      <img src="window14.png" alt="Door 14" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9M15 21V9"/></svg>
-        <span>Door 14</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 14</div>
-        <div class="item-name">Anodised Folding Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window14.png" alt="Window 14">
     </div>
-
-    <!-- Item 15 -->
-    <div class="product-item reveal reveal-delay-3" data-index="14" data-label="Pivot Door" data-name="Bronze Pivot Series">
-      <img src="window15.png" alt="Door 15" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="product-placeholder" style="display:none">
-        <svg viewBox="0 0 24 24" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M12 21V9"/></svg>
-        <span>Door 15</span>
-      </div>
-      <div class="product-item-overlay">
-        <div class="item-label">Series 15</div>
-        <div class="item-name">Bronze Pivot Door</div>
-        <div class="item-zoom">
-          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM10.5 7.5v6m3-3h-6"/></svg>
-          View full size
-        </div>
-      </div>
+    <div class="product-item">
+      <img src="window15.png" alt="Window 15">
     </div>
 
   </div>
 </section>
 
-<!-- ── LIGHTBOX ── -->
-<div id="lightbox">
-  <button id="lightbox-close" title="Close">✕</button>
-  <button id="lightbox-nav-prev" title="Previous">&#8592;</button>
-  <button id="lightbox-nav-next" title="Next">&#8594;</button>
-
-  <div id="lightbox-inner">
-    <div id="lightbox-caption"></div>
-    <img id="lightbox-img" src="" alt="">
-    <div id="lightbox-controls">
-      <button class="lb-btn" id="btn-zoom-out" title="Zoom out">−</button>
-      <button class="lb-btn" id="btn-zoom-reset" title="Reset zoom" style="font-size:12px; letter-spacing:1px;">RESET</button>
-      <button class="lb-btn" id="btn-zoom-in" title="Zoom in">+</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // ── Scroll Reveal ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => observer.observe(el));
-
-  // ── Lightbox ──
-  const items = [...document.querySelectorAll('.product-item')];
-  const lightbox = document.getElementById('lightbox');
-  const lbImg    = document.getElementById('lightbox-img');
-  const lbCap    = document.getElementById('lightbox-caption');
-  let currentIdx = 0;
-  let currentScale = 1;
-
-  function openLightbox(idx) {
-    const item = items[idx];
-    const img  = item.querySelector('img');
-    if (!img || img.style.display === 'none') return;
-    currentIdx = idx;
-    currentScale = 1;
-    lbImg.style.transform = 'scale(1)';
-    lbImg.src = img.src;
-    lbCap.textContent = item.dataset.label + ' — ' + item.dataset.name;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  function navigate(dir) {
-    const len = items.length;
-    openLightbox((currentIdx + dir + len) % len);
-  }
-
-  items.forEach((item, i) => {
-    item.addEventListener('click', () => openLightbox(i));
-  });
-
-  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-  document.getElementById('lightbox-nav-prev').addEventListener('click', () => navigate(-1));
-  document.getElementById('lightbox-nav-next').addEventListener('click', () => navigate(1));
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape')      closeLightbox();
-    if (e.key === 'ArrowLeft')   navigate(-1);
-    if (e.key === 'ArrowRight')  navigate(1);
-  });
-
-  // Zoom
-  document.getElementById('btn-zoom-in').addEventListener('click', () => {
-    currentScale = Math.min(currentScale + 0.25, 3);
-    lbImg.style.transform = `scale(${currentScale})`;
-  });
-  document.getElementById('btn-zoom-out').addEventListener('click', () => {
-    currentScale = Math.max(currentScale - 0.25, 0.5);
-    lbImg.style.transform = `scale(${currentScale})`;
-  });
-  document.getElementById('btn-zoom-reset').addEventListener('click', () => {
-    currentScale = 1;
-    lbImg.style.transform = 'scale(1)';
-  });
-</script>
 </body>
 </html>
