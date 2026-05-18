@@ -55,133 +55,94 @@
   }
   .nav-cta:hover { background: var(--gold-light); }
 
- /* HERO */
-.hero {
+/* HERO */
+ .hero {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 120px 5% 60px;
+  background:
+    linear-gradient(to right, rgba(20,10,5,0.85), rgba(20,10,5,0.3)),
+    url("hero.png") center/cover no-repeat;
+    display: block;
+    align-items: start;
+
+  padding: 100px 5%;
   position: relative;
   overflow: hidden;
 }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--gold) 1px, transparent 1px), linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
 
-/* SLIDESHOW */
-.hero-slides {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-}
-.hero-slide.active {
-  opacity: 1;
-}
-
-/* dark gradient over slideshow */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(20,10,5,0.88), rgba(20,10,5,0.35));
-  z-index: 1;
-}
-
-.hero-grid {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--gold) 1px, transparent 1px), linear-gradient(90deg, var(--gold) 1px, transparent 1px);
-  background-size: 60px 60px;
-  z-index: 2;
-}
-
-#hero-canvas {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  z-index: 2; opacity: 0.55; pointer-events: none;
-}
-
-.hero-content {
+  #hero-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 0; opacity: 0.55; pointer-events: none;
+  }
+    .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   width: 100%;
+
   display: flex;
   flex-direction: column;
 }
-
-.hero-badge {
-  display: inline-block; background: rgba(200,168,75,0.15); border: 1px solid var(--gold);
-  color: var(--gold); font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-  padding: 6px 16px; margin-bottom: 28px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 5.5vw, 72px);
-  color: var(--white); line-height: 1.1; margin-bottom: 12px;
-}
-.hero h1 span { color: var(--gold); }
-.hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; }
-.hero-desc { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin: 24px 0 40px; max-width: 480px; }
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-.btn-primary {
-  background: var(--gold); color: var(--navy); padding: 14px 32px;
-  font-size: 14px; font-weight: 500; text-decoration: none; letter-spacing: 0.5px;
-  transition: all 0.2s; display: inline-block;
-}
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
-.btn-outline {
-  border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 14px 32px;
-  font-size: 14px; font-weight: 400; text-decoration: none; letter-spacing: 0.5px;
-  transition: all 0.2s; display: inline-block;
-}
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-.stat-num { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); font-weight: 700; }
-.stat-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-
-.hero-stats {
-  display: flex;
-  gap: 60px;
-  margin-top: 60px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 3;
-}
-
-/* MOBILE FIX */
-@media (max-width: 600px) {
-  .hero {
-    padding: 100px 5% 50px;
-    min-height: 100svh;
+  .hero-badge {
+    display: inline-block; background: rgba(200,168,75,0.15); border: 1px solid var(--gold);
+    color: var(--gold); font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 16px; margin-bottom: 28px;
   }
   .hero h1 {
-    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    color: var(--white); line-height: 1.1; margin-bottom: 12px;
   }
-  .hero-desc {
-    font-size: 15px;
+  .hero h1 span { color: var(--gold); }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 8px; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; }
+  .hero-desc { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin: 24px 0 40px; max-width: 480px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy); padding: 14px 32px;
+    font-size: 14px; font-weight: 500; text-decoration: none; letter-spacing: 0.5px;
+    transition: all 0.2s; display: inline-block;
   }
-  .hero-stats {
-    gap: 28px;
-    margin-top: 40px;
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.4); color: var(--white); padding: 14px 32px;
+    font-size: 14px; font-weight: 400; text-decoration: none; letter-spacing: 0.5px;
+    transition: all 0.2s; display: inline-block;
   }
-  .stat-num {
-    font-size: 30px;
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-visual {
+   position: relative;
+margin-left: auto;
+margin-top: 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    opacity: 0.6;
   }
-  .btn-primary, .btn-outline {
-    width: 100%;
-    text-align: center;
-    padding: 14px 20px;
+  .hero-card {
+    width: 140px; height: 100px; border: 1px solid rgba(200,168,75,0.3);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px;
   }
-  .hero-slide {
-    background-position: 70% center;
-  }
+  .hero-card-icon { font-size: 28px; }
+  .hero-card p { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--gold); font-weight: 700; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+   .hero-stats {
+  display: flex;
+  gap: 60px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.process {
+  padding: 80px 5%;
+  margin-bottom: 80px;
+}
+
+.features {
+  padding: 80px 5%;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
 
   /* ABOUT */
   .about { padding: 100px 5%; background: var(--off-white); }
